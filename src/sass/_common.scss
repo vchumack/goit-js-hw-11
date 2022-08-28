@@ -1,1 +1,38 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+button {
+   padding: 10px;
+   margin-left: 10px;
+   border-radius: 5px;
+   color: aliceblue;
+   background-color: rgb(45, 159, 231);
+   border: none;
+   transform: scale(1);
+   transition: background-color 250ms linear, transform 250ms linear;
+}
+
+button:hover {
+   background-color: rgb(65, 168, 127);
+   transform: scale(1.05);
+}
+
+header {
+   background-color: #4253af;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.search-form {
+
+   display: flex;
+   justify-content: center;
+}
+
+
+.load-more {
+   margin-top: 30px;
+   display: flex;
+   justify-content: center;
+   margin-left: auto;
+   margin-right: auto;
+}
