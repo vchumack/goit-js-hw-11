@@ -1,5 +1,10 @@
 import axios from 'axios';
-export default class ApiPixabay {
+const BASE_URL =
+  'https://pixabay.com/api/?key=29564245-0babaf5e9f754f21fa651fdf5&q';
+
+const BASE_PARAMS = 'image_type=photo&orientation=horizontal&safesearch=true';
+
+export class ApiPixabay {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
@@ -14,19 +19,18 @@ export default class ApiPixabay {
     return (this.searchQuery = newQuery);
   }
 
-  async apiPixabay() {
+  apiPixabay() {
     console.log('это this', this);
-    this.page = 1;
-    return await axios.get(
-      `https://pixabay.com/api/?key=29564245-0babaf5e9f754f21fa651fdf5&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.perPage}`
+    return axios.get(
+      `${BASE_URL}=${this.searchQuery}&${BASE_PARAMS}&page=${this.page}&per_page=${this.perPage}`
     );
   }
 
-  async apiPixabayLoadMore() {
-    console.log('это this', this);
+  resetPage() {
+    this.page = 1;
+  }
+
+  changePage() {
     this.page += 1;
-    return await axios.get(
-      `https://pixabay.com/api/?key=29564245-0babaf5e9f754f21fa651fdf5&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=${this.perPage}`
-    );
   }
 }
